@@ -1,0 +1,86 @@
+[
+  {
+    "product_id": 1,
+    "review_id": "r1-a",
+    "author": "jane_d",
+    "text": "Sturdy backpack, well worth the price. Zippers still feel durable after two months of daily commuting."
+  },
+  {
+    "product_id": 2,
+    "review_id": "r2-a",
+    "author": "mike91",
+    "text": "Good fit and the fabric held up fine through a few washes. Runs slightly small, order one size up."
+  },
+  {
+    "product_id": 3,
+    "review_id": "r3-a",
+    "author": "corey_t",
+    "text": "Comfortable jacket for the price, though the color is a touch darker in person than in the photos."
+  },
+  {
+    "product_id": 4,
+    "review_id": "r4-a",
+    "author": "priya_k",
+    "text": "Bought this as a gift and got great feedback on it. Stitching looks solid, no loose threads anywhere."
+  },
+  {
+    "product_id": 5,
+    "review_id": "r5-a",
+    "author": "sam_w",
+    "text": "Nice piece, the finish looks more expensive than what I paid, happy with the purchase overall."
+  },
+  {
+    "product_id": 6,
+    "review_id": "r6-a",
+    "author": "leah_b",
+    "text": "Simple and elegant, exactly matched the product photos. Arrived in a nice little box too."
+  },
+  {
+    "product_id": 7,
+    "review_id": "r7-a",
+    "author": "d_ferris",
+    "text": "Does what it says, no complaints after a month of regular use. Packaging was a bit excessive."
+  },
+  {
+    "product_id": 8,
+    "review_id": "r8-a",
+    "author": "nataliep",
+    "text": "Setup was straightforward and performance has been consistent. Would buy again."
+  },
+  {
+    "product_id": 9,
+    "review_id": "r9-a",
+    "author": "quentin_r",
+    "text": "Solid storage option, transfer speeds are about what I expected for this price range."
+  },
+  {
+    "product_id": 10,
+    "review_id": "r10-a",
+    "author": "abby_h",
+    "text": "Reliable so far, been running it for a few weeks without issues. Fairly quiet too."
+  },
+  {
+    "product_id": 11,
+    "review_id": "r11-a",
+    "author": "trevor_l",
+    "text": "Does the job, installation took about ten minutes and everything was recognized immediately."
+  },
+  {
+    "product_id": 12,
+    "review_id": "r12-a",
+    "author": "grace_m",
+    "text": "Good value, capacity matches the listing and it hasn't slowed down even when nearly full."
+  },
+  {
+    "product_id": 13,
+    "review_id": "r13-a",
+    "author": "owen_p",
+    "text": "Picture quality is good for the price point, colors look accurate out of the box."
+  },
+  {
+    "product_id": 14,
+    "review_id": "r14-a",
+    "author": "ines_v",
+    "text": "Works well as a second display, though I had to adjust the stand height for comfortable viewing."
+  }
+]
