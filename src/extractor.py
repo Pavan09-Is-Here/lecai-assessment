@@ -131,7 +131,8 @@ def extract_record(review_text: str, *, perturb: bool = False) -> ExtractedRecor
         system_instruction=SYSTEM_PROMPT,
         tools=[RECORD_EXTRACTION_FUNCTION],
         generation_config={
-            "tool_choice": {"allowed_tools": {"mode": "any", "tools": ["record_extraction"]}}
+            "tool_choice": {"allowed_tools": {"mode": "any", "tools": ["record_extraction"]}},
+            "seed": 42,
         },
         stream=False,
     )
