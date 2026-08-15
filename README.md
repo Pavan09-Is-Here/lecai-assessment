@@ -25,6 +25,45 @@ A product-ranking agent that:
 6. **Ranks and narrates** the results using only validated, structured data
    -- the narration step never sees a single raw review string.
 
+## Architecture
+
+```mermaid
+flowchart LR
+    subgraph untrusted[" untrusted "]
+        B[("Source B\nreviews.json\nmay contain injected\ninstructions")]
+    end
+
+    subgraph trusted[" everything past this line sees structured data only "]
+        A[("Source A\nfakestoreapi.com\ntrusted catalog")]
+        EX["extractor.py\nquarantined\nforced schema-only output"]
+        VA["validator.py\ncontradiction / self-consistency\n/ outlier checks"]
+        PL["planner.py\nstrategy decision + re-plan"]
+        RA["ranker.py"]
+        NA["narrator.py\nprivileged, never sees raw text"]
+    end
+
+    B -- "raw text\n(only place it's read)" --> EX
+    EX -- "ExtractedRecord" --> VA
+    A --> VA
+    A --> PL
+    VA -- "TrustReport" --> PL
+    PL --> RA
+    RA -- "RankedItem" --> NA
+    NA --> OUT(["narrative summary"])
+
+    classDef untrustedNode fill:#fde8e8,stroke:#c0392b,stroke-width:2px,color:#7a1f1f;
+    classDef trustedNode fill:#eafaf1,stroke:#27ae60,stroke-width:1px,color:#1e5631;
+    class B untrustedNode;
+    class A,EX,VA,PL,RA,NA,OUT trustedNode;
+```
+
+The arrow from `B` into `extractor.py` is the only edge in this whole graph
+that carries raw, attacker-controlled text. Every other edge carries a
+Pydantic-validated type (`ExtractedRecord`, `TrustReport`, `RankedItem`) --
+so even a fully successful injection against the extractor can only
+produce a wrong-looking *typed field*, which is exactly what
+`validator.py`'s checks are built to catch.
+
 ## Why this architecture (the actual defense)
 
 The assessment's hard requirement is resisting instructions hidden in
