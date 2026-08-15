@@ -30,19 +30,19 @@ A product-ranking agent that:
 ```mermaid
 flowchart LR
     subgraph untrusted[" untrusted "]
-        B[("Source B\nreviews.json\nmay contain injected\ninstructions")]
+        B[("Source B<br/>reviews.json<br/>may contain injected<br/>instructions")]
     end
 
     subgraph trusted[" everything past this line sees structured data only "]
-        A[("Source A\nfakestoreapi.com\ntrusted catalog")]
-        EX["extractor.py\nquarantined\nforced schema-only output"]
-        VA["validator.py\ncontradiction / self-consistency\n/ outlier checks"]
-        PL["planner.py\nstrategy decision + re-plan"]
+        A[("Source A<br/>fakestoreapi.com<br/>trusted catalog")]
+        EX["extractor.py<br/>quarantined<br/>forced schema-only output"]
+        VA["validator.py<br/>contradiction / self-consistency<br/>/ outlier checks"]
+        PL["planner.py<br/>strategy decision + re-plan"]
         RA["ranker.py"]
-        NA["narrator.py\nprivileged, never sees raw text"]
+        NA["narrator.py<br/>privileged, never sees raw text"]
     end
 
-    B -- "raw text\n(only place it's read)" --> EX
+    B -- "raw text<br/>(only place it's read)" --> EX
     EX -- "ExtractedRecord" --> VA
     A --> VA
     A --> PL
