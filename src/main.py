@@ -11,7 +11,7 @@ SCENARIOS = {
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="LEC AI build assessment: injection-resistant ranking agent")
+    parser = argparse.ArgumentParser(description="Injection-resistant ranking agent")
     parser.add_argument("--scenario", choices=SCENARIOS.keys(), default="clean")
     parser.add_argument("--top", type=int, default=5)
     args = parser.parse_args()

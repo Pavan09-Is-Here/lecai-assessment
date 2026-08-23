@@ -1,7 +1,6 @@
 # Injection-resistant ranking agent
 
-Built for the LEC AI AI Engineering Intern build assessment ("Sanitise agent
-outputs when retrieval poisons the pipeline").
+Sanitises agent outputs when retrieval poisons the pipeline.
 
 ## What it does
 
@@ -66,7 +65,7 @@ produce a wrong-looking *typed field*, which is exactly what
 
 ## Why this architecture (the actual defense)
 
-The assessment's hard requirement is resisting instructions hidden in
+The hard requirement is resisting instructions hidden in
 fetched data without pattern-matching known attack strings. The design
 answer here is **channel separation** (the "dual-LLM" pattern): raw
 untrusted text is read by exactly one component (`src/extractor.py`), which
@@ -97,8 +96,8 @@ Detection is semantic, not string-matched, in three independent ways:
 - **Directive detection** in the extractor itself is also semantic: the
   model is asked to judge *whether a sentence is functioning as an
   instruction*, not whether it contains specific trigger phrases. See
-  `tests/test_injection_resistance.py` for adversarial phrasings that never
-  appear in the assessment's own examples.
+  `tests/test_injection_resistance.py` for adversarial phrasings that the
+  system was never tuned against.
 
 ## The two interacting failure modes
 
